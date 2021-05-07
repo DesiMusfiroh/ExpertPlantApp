@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">ExpertPlantApp</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_soil">Soil Data</string>
+    <string name="title_plant">Plant Data</string>
+    <string name="title_settings">Settings</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_admin_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="add_soil">Add new soil</string>
+    <string name="add_plant">Add new plant</string>
+    <string name="save">Save</string>
+    <string name="name">Name</string>
+    <string name="desc">Description</string>
+    <string name="title_favorite">Favorite</string>
 </resources>
