@@ -25,7 +25,7 @@
     <string name="form">Input Form</string>
     <string name="fill_form">Fill in this form with the most appropriate data based on your environmental conditions !</string>
     <string name="altitude">Altitude</string>
-    <string name="temperature">Air Temperature</string>
+    <string name="temperature">Temperature</string>
     <string name="humidity">Humidity</string>
     <string name="rainfall">Rainfall</string>
     <string name="submit">Submit</string>

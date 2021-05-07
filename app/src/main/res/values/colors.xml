@@ -12,4 +12,10 @@
     <color name="primaryDark">#293424</color>
     <color name="accent">#E9F1B8</color>
     <color name="grey">#9EAA98</color>
+
+    <color name="yellow">#E7ECCB</color>
+    <color name="red">#EDDCD6</color>
+    <color name="blue">#D7EBE4</color>
+    <color name="green">#DCECD6</color>
+
 </resources>

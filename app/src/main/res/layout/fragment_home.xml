@@ -29,6 +29,7 @@
             android:text="@string/check"
             android:textColor="@color/white"
             android:background="@drawable/btn_check"
+            android:elevation="50dp"
             android:layout_marginHorizontal="20dp"
             android:layout_marginVertical="16dp"/>
 
@@ -46,33 +47,51 @@
             <LinearLayout
                 android:id="@+id/altitude"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="60dp"
                 android:orientation="horizontal"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/bg_factor"
                 app:layout_constraintEnd_toStartOf="@+id/humidity"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
-
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_altitude"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="16dp"/>
+                <TextView
+                    style="@style/TextSmall"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/altitude"/>
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/humidity"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="60dp"
                 android:layout_marginStart="8dp"
                 android:background="@drawable/bg_factor"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/altitude"
                 app:layout_constraintTop_toTopOf="parent">
-
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_humidity"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="16dp"/>
+                <TextView
+                    style="@style/TextSmall"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/humidity"/>
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/temperature"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/bg_factor"
@@ -81,13 +100,24 @@
                 app:layout_constraintEnd_toStartOf="@+id/rainfall"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/altitude">
-
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_temperature"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginVertical="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"/>
+                <TextView
+                    style="@style/TextSmall"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/temperature"/>
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/rainfall"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="60dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/bg_factor"
@@ -95,7 +125,16 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/temperature"
                 app:layout_constraintTop_toBottomOf="@+id/humidity">
-
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_rainfall"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="16dp"/>
+                <TextView
+                    style="@style/TextSmall"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/rainfall"/>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -109,8 +148,7 @@
             android:id="@+id/rv_soil"
             android:layout_width="match_parent"
             android:layout_height="140dp"
-            android:layout_marginHorizontal="20dp"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_marginHorizontal="12dp"
             tools:listitem="@layout/item_soils">
 
         </androidx.recyclerview.widget.RecyclerView>
