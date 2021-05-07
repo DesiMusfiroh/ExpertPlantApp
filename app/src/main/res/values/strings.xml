@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ExpertPlantApp</string>
+    <string name="app_name">Expert Plant App</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="dashboard">Dashboard</string>
@@ -17,4 +17,28 @@
     <string name="name">Name</string>
     <string name="desc">Description</string>
     <string name="title_favorite">Favorite</string>
+    <string name="what_is">What is Expert Plant App ?</string>
+    <string name="explain_app">Expert Plant App is an mobile application that help you to identify what the most suitable plant for cultivate in your area based on environmental factor with knowledge acquired from experts.</string>
+    <string name="check">Check My Recomendation Plant</string>
+    <string name="environmental">Environmental Based Factors</string>
+    <string name="type_soil">Type of Soils</string>
+    <string name="form">Input Form</string>
+    <string name="fill_form">Fill in this form with the most appropriate data based on your environmental conditions !</string>
+    <string name="altitude">Altitude</string>
+    <string name="temperature">Air Temperature</string>
+    <string name="humidity">Humidity</string>
+    <string name="rainfall">Rainfall</string>
+    <string name="submit">Submit</string>
+    <string name="check_result">Check The Result</string>
+
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
 </resources>

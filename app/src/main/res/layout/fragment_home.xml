@@ -1,14 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/title_home" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TextView
+            style="@style/TextMedium"
+            android:text="@string/what_is"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginBottom="8dp"/>
+        <TextView
+            style="@style/TextSmall"
+            android:text="@string/explain_app"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="8dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/check"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_check"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="16dp"/>
+
+        <TextView
+            style="@style/TextMedium"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="16dp"
+            android:text="@string/environmental"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp">
+
+            <LinearLayout
+                android:id="@+id/altitude"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:orientation="horizontal"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_factor"
+                app:layout_constraintEnd_toStartOf="@+id/humidity"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/humidity"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_factor"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/altitude"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/temperature"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_factor"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/rainfall"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/altitude">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rainfall"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_factor"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/temperature"
+                app:layout_constraintTop_toBottomOf="@+id/humidity">
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            style="@style/TextMedium"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="16dp"
+            android:text="@string/type_soil"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_soil"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginHorizontal="20dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:listitem="@layout/item_soils">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

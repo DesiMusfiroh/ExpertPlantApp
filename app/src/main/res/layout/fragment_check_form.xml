@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp"
+    tools:context=".ui.check.CheckFormFragment">
+
+    <TextView
+        style="@style/TextMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/form"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        style="@style/TextSmall"
+        android:text="@string/fill_form"
+        android:layout_marginVertical="8dp"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_altitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/altitude"
+        android:paddingHorizontal="8dp"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_temperature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/temperature"
+        android:paddingHorizontal="8dp"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_humidity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/humidity"
+        android:paddingHorizontal="8dp"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_rainfall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/rainfall"
+        android:paddingHorizontal="8dp"/>
+
+    <Spinner
+        android:id="@+id/planets_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_check"
+        android:text="@string/check_result"/>
+</LinearLayout>
