@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1089428184119",
+    "firebase_url": "https://expertplant-13b11-default-rtdb.firebaseio.com",
+    "project_id": "expertplant-13b11",
+    "storage_bucket": "expertplant-13b11.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089428184119:android:94dfe0fa634efec80473b2",
+        "android_client_info": {
+          "package_name": "com.desi.expertplantapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089428184119-5elqpf8f6cc2sv03m1blu2emks5b6cc2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADOLXMzLAwJ5x1lAQRi0ezdutm8lYsahs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1089428184119-5elqpf8f6cc2sv03m1blu2emks5b6cc2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
