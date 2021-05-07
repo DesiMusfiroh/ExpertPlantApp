@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import com.desi.expertplantapp.MainActivity
+import com.desi.expertplantapp.ui.MainActivity
 import com.desi.expertplantapp.R
 import com.desi.expertplantapp.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
