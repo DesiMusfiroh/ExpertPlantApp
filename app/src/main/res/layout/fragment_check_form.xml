@@ -1,198 +1,220 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingHorizontal="20dp"
-    tools:context=".ui.check.CheckFormFragment">
+    android:layout_height="wrap_content">
 
-    <TextView
-        style="@style/TextMedium"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/form"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="8dp"/>
-
-    <TextView
-        style="@style/TextSmall"
-        android:text="@string/fill_form"
-        android:layout_marginVertical="8dp"/>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_altitude"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/rocknroll_one"
-            android:hint="@string/altitude"
-            android:paddingHorizontal="8dp"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/mdpl"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        tools:context=".ui.check.CheckFormFragment">
 
         <TextView
             style="@style/TextMedium"
-            android:textStyle="normal"
-            android:id="@+id/mdpl"
-            android:layout_width="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@string/mdpl"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/et_altitude"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_temperature"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/rocknroll_one"
-            android:hint="@string/temperature"
-            android:paddingHorizontal="8dp"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/celcius"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="@string/form"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            style="@style/TextSmall"
+            android:text="@string/fill_form"
+            android:layout_marginVertical="8dp"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_altitude"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rocknroll_one"
+                android:hint="@string/altitude"
+                android:paddingHorizontal="8dp"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/mdpl"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                style="@style/TextMedium"
+                android:textStyle="normal"
+                android:id="@+id/mdpl"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/mdpl"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/et_altitude"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_temperature"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rocknroll_one"
+                android:hint="@string/temperature"
+                android:paddingHorizontal="8dp"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/celcius"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                style="@style/TextMedium"
+                android:textStyle="normal"
+                android:id="@+id/celcius"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/celcius"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/et_temperature"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_humidity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rocknroll_one"
+                android:hint="@string/humidity"
+                android:paddingHorizontal="8dp"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/persen"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                style="@style/TextMedium"
+                android:textStyle="normal"
+                android:id="@+id/persen"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/percent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/et_humidity"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_rainfall"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rocknroll_one"
+                android:hint="@string/rainfall"
+                android:paddingHorizontal="8dp"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/mmyear"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                style="@style/TextMedium"
+                android:textStyle="normal"
+                android:id="@+id/mmyear"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/mmyear"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/et_rainfall"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/select_soil"
+            android:layout_marginTop="8dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:fontFamily="@font/rocknroll_one"
+                android:textSize="16sp"
+                android:inputType="none"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             style="@style/TextMedium"
-            android:textStyle="normal"
-            android:id="@+id/celcius"
-            android:layout_width="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@string/celcius"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/et_temperature"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_humidity"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/rocknroll_one"
-            android:hint="@string/humidity"
-            android:paddingHorizontal="8dp"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/persen"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/certainty_level"/>
 
         <TextView
-            style="@style/TextMedium"
-            android:textStyle="normal"
-            android:id="@+id/persen"
-            android:layout_width="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@string/percent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/et_humidity"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_rainfall"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/rocknroll_one"
-            android:hint="@string/rainfall"
-            android:paddingHorizontal="8dp"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/mmyear"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            style="@style/TextSmall"
+            android:text="@string/certain_form"
+            android:layout_marginVertical="8dp"/>
 
         <TextView
-            style="@style/TextMedium"
-            android:textStyle="normal"
-            android:id="@+id/mmyear"
-            android:layout_width="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@string/mmyear"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/et_rainfall"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <TextView
-        style="@style/TextMedium"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/certainty_level"/>
-
-    <TextView
-        style="@style/TextSmall"
-        android:text="@string/certain_form"
-        android:layout_marginVertical="8dp"/>
-
-    <TextView
-        style="@style/TextSmall"
-        android:text="@string/certain_altitude"
-        android:layout_marginVertical="8dp"/>
-    <RadioGroup
-        android:id="@+id/certain_altitude"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-        <RadioButton android:id="@+id/certain_one"
-            android:layout_width="wrap_content"
+            style="@style/TextSmall"
+            android:text="@string/certain_altitude"
+            android:layout_marginVertical="8dp"/>
+        <RadioGroup
+            android:id="@+id/certain_altitude"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/one"/>
-        <RadioButton android:id="@+id/certain_two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/two"/>
-        <RadioButton android:id="@+id/certain_three"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/three"/>
-        <RadioButton android:id="@+id/certain_four"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/four"/>
-        <RadioButton android:id="@+id/certain_five"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/five"/>
-    </RadioGroup>
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+            <RadioButton android:id="@+id/certain_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/one"/>
+            <RadioButton android:id="@+id/certain_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/two"/>
+            <RadioButton android:id="@+id/certain_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/three"/>
+            <RadioButton android:id="@+id/certain_four"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/four"/>
+            <RadioButton android:id="@+id/certain_five"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/five"/>
+        </RadioGroup>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_check"
-        android:layout_marginVertical="20dp"
-        android:text="@string/check_result"/>
-</LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_check"
+            android:layout_marginVertical="20dp"
+            android:text="@string/check_result"/>
+    </LinearLayout>
+</ScrollView>
