@@ -5,27 +5,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingHorizontal="20dp"
     tools:context=".ui.auth.RegisterActivity">
+
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/ic_logo"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        style="@style/TextMedium"
+        android:text="@string/app_name"
+        android:textSize="24sp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        style="@style/TextMedium"
+        android:text="@string/register"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        style="@style/TextSmall"
+        android:text="@string/register_desc"
+        android:layout_marginTop="16dp"/>
 
     <EditText
         android:id="@+id/et_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="40dp"/>
+        android:fontFamily="@font/rocknroll_one"
+        android:textSize="16sp"
+        android:hint="@string/username"
+        android:layout_marginTop="16dp"/>
 
     <EditText
         android:id="@+id/et_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
+        android:fontFamily="@font/rocknroll_one"
+        android:textSize="16sp"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
         android:layout_marginTop="16dp"/>
 
     <EditText
         android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
+        android:fontFamily="@font/rocknroll_one"
+        android:textSize="16sp"
+        android:hint="@string/password"
+        android:inputType="textPassword"
         android:layout_marginTop="16dp"/>
 
     <Button
@@ -33,7 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/register"
-        android:layout_marginHorizontal="16dp"
+        android:background="@drawable/btn_check"
         android:layout_marginTop="32dp"/>
 
     <Button
@@ -41,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login"
-        android:layout_marginHorizontal="16dp"
+        android:background="@drawable/btn_check"
         android:layout_marginTop="16dp"/>
 
 </LinearLayout>

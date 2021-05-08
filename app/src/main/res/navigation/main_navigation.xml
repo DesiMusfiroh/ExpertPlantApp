@@ -12,6 +12,12 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
+        android:id="@+id/navigation_check"
+        android:name="com.desi.expertplantapp.ui.check.CheckFormFragment"
+        android:label="@string/title_check"
+        tools:layout="@layout/fragment_check_form" />
+
+    <fragment
         android:id="@+id/navigation_favorite"
         android:name="com.desi.expertplantapp.ui.favorite.FavoriteFragment"
         android:label="@string/title_favorite"

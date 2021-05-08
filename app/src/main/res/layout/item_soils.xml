@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_container"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="8dp"
@@ -11,8 +11,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
         app:cardCornerRadius="20dp"
         android:elevation="20dp"
         app:cardMaxElevation="4dp">
