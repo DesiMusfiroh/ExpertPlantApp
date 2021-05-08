@@ -75,9 +75,20 @@ class CheckFormFragment : Fragment() {
             val humidity = etHumidity.text
             val rainfall = etRainfall.text
             val soil = soilSelected
-
             Log.d("firebase", "$altitude, $temperature, $humidity, $rainfall, $soil")
 
+            val certainAltitudeId = certainAltitude.checkedRadioButtonId
+            val certainTemperatureId = certainTemperature.checkedRadioButtonId
+            val certainHumidityId = certainHumidity.checkedRadioButtonId
+            val certainRainfallId = certainRainfall.checkedRadioButtonId
+            val certainSoilId = certainSoil.checkedRadioButtonId
+            val certainAltitude = resources.getResourceEntryName(certainAltitudeId)
+            val certainTemperature = resources.getResourceEntryName(certainTemperatureId)
+            val certainHumidity = resources.getResourceEntryName(certainHumidityId)
+            val certainRainfall = resources.getResourceEntryName(certainRainfallId)
+            val certainSoil = resources.getResourceEntryName(certainSoilId)
+
+            Log.d("firebase", "$certainAltitude, $certainTemperature, $certainHumidity, $certainRainfall, $certainSoil")
         }
     }
 

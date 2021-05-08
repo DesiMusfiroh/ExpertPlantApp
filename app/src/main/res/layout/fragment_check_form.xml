@@ -192,23 +192,152 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
-            <RadioButton android:id="@+id/certain_one"
+            <RadioButton android:id="@+id/certain_altitude_one"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/one"/>
-            <RadioButton android:id="@+id/certain_two"
+            <RadioButton android:id="@+id/certain_altitude_two"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/two"/>
-            <RadioButton android:id="@+id/certain_three"
+            <RadioButton android:id="@+id/certain_altitude_three"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/three"/>
-            <RadioButton android:id="@+id/certain_four"
+            <RadioButton android:id="@+id/certain_altitude_four"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/four"/>
-            <RadioButton android:id="@+id/certain_five"
+            <RadioButton android:id="@+id/certain_altitude_five"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/five"/>
+        </RadioGroup>
+
+        <TextView
+            style="@style/TextSmall"
+            android:text="@string/certain_temperature"
+            android:layout_marginVertical="8dp"/>
+        <RadioGroup
+            android:id="@+id/certain_temperature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+            <RadioButton android:id="@+id/certain_temperature_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/one"/>
+            <RadioButton android:id="@+id/certain_temperature_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/two"/>
+            <RadioButton android:id="@+id/certain_temperature_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/three"/>
+            <RadioButton android:id="@+id/certain_temperature_four"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/four"/>
+            <RadioButton android:id="@+id/certain_temperature_five"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/five"/>
+        </RadioGroup>
+
+        <TextView
+            style="@style/TextSmall"
+            android:text="@string/certain_humidity"
+            android:layout_marginVertical="8dp"/>
+        <RadioGroup
+            android:id="@+id/certain_humidity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+            <RadioButton android:id="@+id/certain_humidity_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/one"/>
+            <RadioButton android:id="@+id/certain_humidity_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/two"/>
+            <RadioButton android:id="@+id/certain_humidity_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/three"/>
+            <RadioButton android:id="@+id/certain_humidity_four"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/four"/>
+            <RadioButton android:id="@+id/certain_humidity_five"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/five"/>
+        </RadioGroup>
+
+        <TextView
+            style="@style/TextSmall"
+            android:text="@string/certain_rainfall"
+            android:layout_marginVertical="8dp"/>
+        <RadioGroup
+            android:id="@+id/certain_rainfall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+            <RadioButton android:id="@+id/certain_rainfall_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/one"/>
+            <RadioButton android:id="@+id/certain_rainfall_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/two"/>
+            <RadioButton android:id="@+id/certain_rainfall_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/three"/>
+            <RadioButton android:id="@+id/certain_rainfall_four"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/four"/>
+            <RadioButton android:id="@+id/certain_rainfall_five"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/five"/>
+        </RadioGroup>
+
+
+        <TextView
+            style="@style/TextSmall"
+            android:text="@string/certain_soil"
+            android:layout_marginVertical="8dp"/>
+        <RadioGroup
+            android:id="@+id/certain_soil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+            <RadioButton android:id="@+id/certain_soil_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/one"/>
+            <RadioButton android:id="@+id/certain_soil_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/two"/>
+            <RadioButton android:id="@+id/certain_soil_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/three"/>
+            <RadioButton android:id="@+id/certain_soil_four"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/four"/>
+            <RadioButton android:id="@+id/certain_soil_five"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/five"/>

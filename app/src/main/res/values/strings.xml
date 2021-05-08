@@ -42,7 +42,11 @@
     <string name="five">5</string>
     <string name="certainty_level">Certainty Level</string>
     <string name="certain_form">Fill in the form below with your certain level in the previous answer.</string>
-    <string name="certain_altitude">How confident are you for the altitude data ?</string>
+    <string name="certain_altitude">How sure are you for the altitude data ?</string>
+    <string name="certain_temperature">How sure are you for the temperature data ?</string>
+    <string name="certain_humidity">How sure are you for the humidity data ?</string>
+    <string name="certain_rainfall">How sure are you for the rainfall data ?</string>
+    <string name="certain_soil">How sure are you for the soil data ?</string>
     <string name="logout">Logout</string>
     <string name="email">E-mail</string>
     <string name="password">Password</string>
