@@ -30,7 +30,7 @@ class DataRepository {
         return soilResults
     }
 
-    private fun getPlantsData(): LiveData<ArrayList<Plant>>  {
+    fun getPlantsData(): LiveData<ArrayList<Plant>>  {
         val plantResults = MutableLiveData<ArrayList<Plant>>()
         database = FirebaseDatabase.getInstance().getReference("plants")
         database.addValueEventListener(object : ValueEventListener {
@@ -38,13 +38,16 @@ class DataRepository {
                 val plantList = ArrayList<Plant>()
                 if (snapshot.exists()) {
                     for (plantSnapshot in snapshot.children) {
+                        Log.d("firebase", "plant snap $plantSnapshot")
                         val plant = plantSnapshot.getValue(Plant::class.java)
-                        val plantItem = Plant(plantSnapshot.key,
+
+                        Log.d("firebase", "plant  $plant")
+                        val plantItem = Plant(
+                            plantSnapshot.key,
                             plant?.name,
                             plant?.species,
                             plant?.desc,
                             plant?.benefit,
-                            plant?.image,
                             plant?.min_altitude,
                             plant?.max_altitude,
                             plant?.min_temperature,
@@ -53,11 +56,14 @@ class DataRepository {
                             plant?.max_humidity,
                             plant?.min_rainfall,
                             plant?.max_rainfall,
-                            plant?.soils
+                            plant?.image,
+                            0
                         )
                         plantList.add(plantItem)
                     }
                 }
+                Log.d("firebase", "plant list $plantList")
+                plantResults.postValue(plantList)
             }
 
             override fun onCancelled(error: DatabaseError) {

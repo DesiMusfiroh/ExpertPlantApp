@@ -4,6 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.desi.expertplantapp.data.DataRepository
+import com.desi.expertplantapp.data.Plant
 import com.desi.expertplantapp.data.Soil
 import com.google.firebase.database.*
 
@@ -34,5 +36,10 @@ class CheckFormViewModel : ViewModel() {
             }
         })
         return listResults
+    }
+
+    fun getPlantsData(): LiveData<ArrayList<Plant>> {
+        val dataRepository = DataRepository()
+        return dataRepository.getPlantsData()
     }
 }

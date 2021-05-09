@@ -9,25 +9,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.desi.expertplantapp.data.Check
 import com.desi.expertplantapp.data.Plant
-import com.desi.expertplantapp.data.Soil
 import com.desi.expertplantapp.databinding.FragmentCheckFormBinding
-import com.desi.expertplantapp.ui.home.HomeViewModel
-import com.desi.expertplantapp.ui.home.SoilAdapter
-import com.desi.expertplantapp.ui.soil.SoilActivity
 import com.google.firebase.database.*
 
 class CheckFormFragment : Fragment() {
 
     private lateinit var fragmentCheckFormBinding: FragmentCheckFormBinding
     private lateinit var database: DatabaseReference
-    private lateinit var mapSoils: LinkedHashMap<String, String>
     private var arrayAdapter: ArrayAdapter<String>? = null
-    val listSoils: MutableList<String> = ArrayList()
     private lateinit var listPlants: ArrayList<Plant>
     private lateinit var soilSelected: String
+    private lateinit var viewModel: CheckFormViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         fragmentCheckFormBinding = FragmentCheckFormBinding.inflate(layoutInflater, container, false)
@@ -36,7 +33,7 @@ class CheckFormFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[CheckFormViewModel::class.java]
+        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[CheckFormViewModel::class.java]
 
         viewModel.getListSoilName().observe(viewLifecycleOwner, { listSoilName ->
             arrayAdapter = context?.let { ArrayAdapter(it, R.layout.simple_spinner_dropdown_item, listSoilName) }
@@ -50,12 +47,12 @@ class CheckFormFragment : Fragment() {
                 }
             }
             btnSubmit.setOnClickListener{
-                getDataInput()
+                checkingProcess()
             }
         }
     }
 
-    private fun getDataInput() {
+    private fun checkingProcess() {
         fragmentCheckFormBinding.apply {
             val altitude = etAltitude.text
             val temperature = etTemperature.text
@@ -75,26 +72,62 @@ class CheckFormFragment : Fragment() {
             val certainRainfall = resources.getResourceEntryName(certainRainfallId)
             val certainSoil = resources.getResourceEntryName(certainSoilId)
             Log.d("firebase", "$certainAltitude, $certainTemperature, $certainHumidity, $certainRainfall, $certainSoil")
-        }
-    }
 
-    private fun getPlantsData() {
-        database = FirebaseDatabase.getInstance().getReference("plants")
-        database.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    for (plantSnapshot in snapshot.children) {
-                        val plant = plantSnapshot.getValue(Plant::class.java)
-                        listPlants.add(plant!!)
-//                        Log.d("firebase", listPlants.toString())
+            val check = Check(altitude, temperature, humidity, rainfall, soil, certainAltitude, certainTemperature, certainHumidity, certainRainfall, certainSoil )
+            viewModel.getPlantsData().observe(viewLifecycleOwner, { plantsData ->
+
+                for (plant in plantsData) {
+                    if (check.altitude.toString().toInt() >= plant.min_altitude.toString().toInt() &&  check.altitude.toString().toInt() <= plant.max_altitude.toString().toInt()) {
+                        var certainAltitudeUser = 0
+                        when (certainAltitude) {
+                            "certain_altitude_one" -> certainAltitudeUser = 0
+                            "certain_altitude_two" -> certainAltitudeUser = 25
+                            "certain_altitude_three" -> certainAltitudeUser = 50
+                            "certain_altitude_four" -> certainAltitudeUser = 75
+                            "certain_altitude_five" -> certainAltitudeUser = 100
+                        }
+                        plant.score = plant.score?.plus((100 * certainAltitudeUser))
                     }
+                    if (check.temperature.toString().toInt() >= plant.min_temperature.toString().toInt() &&  check.temperature.toString().toInt() <= plant.max_temperature.toString().toInt()) {
+                        var certainTemperatureUser = 0
+                        when (certainTemperature) {
+                            "certain_temperature_one" -> certainTemperatureUser = 0
+                            "certain_temperature_two" -> certainTemperatureUser = 25
+                            "certain_temperature_three" -> certainTemperatureUser = 50
+                            "certain_temperature_four" -> certainTemperatureUser = 75
+                            "certain_temperature_five" -> certainTemperatureUser = 100
+                        }
+                        plant.score = plant.score?.plus((75 * certainTemperatureUser))
+                    }
+                    if (check.humidity.toString().toInt() >= plant.min_humidity.toString().toInt() &&  check.humidity.toString().toInt() <= plant.max_humidity.toString().toInt()) {
+                        var certainHumidityUser = 0
+                        when (certainHumidity) {
+                            "certain_humidity_one" -> certainHumidityUser = 0
+                            "certain_humidity_two" -> certainHumidityUser = 25
+                            "certain_humidity_three" -> certainHumidityUser = 50
+                            "certain_humidity_four" -> certainHumidityUser = 75
+                            "certain_humidity_five" -> certainHumidityUser = 100
+                        }
+                        plant.score = plant.score?.plus((50 * certainHumidityUser))
+                    }
+                    if (check.rainfall.toString().toInt() >= plant.min_rainfall.toString().toInt() &&  check.rainfall.toString().toInt() <= plant.max_rainfall.toString().toInt()) {
+                        var certainRainfallUser = 0
+                        when (certainRainfall) {
+                            "certain_rainfall_one" -> certainRainfallUser = 0
+                            "certain_rainfall_two" -> certainRainfallUser = 25
+                            "certain_rainfall_three" -> certainRainfallUser = 50
+                            "certain_rainfall_four" -> certainRainfallUser = 75
+                            "certain_rainfall_five" -> certainRainfallUser = 100
+                        }
+                        plant.score = plant.score?.plus((25 * certainRainfallUser))
+                    }
+                    plant.score = plant.score?.div(400)
+                    Log.d("firebase", "${plant.score}")
                 }
-            }
+                Log.d("firebase", "${plantsData}")
+                Toast.makeText(context, "Plant Recomendation Percentage $plantsData", Toast.LENGTH_SHORT).show()
+            })
+        }
 
-            override fun onCancelled(error: DatabaseError) {
-                Log.d("firebase", "cancelled")
-            }
-        })
     }
-
 }
