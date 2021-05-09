@@ -9,20 +9,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.desi.expertplantapp.data.Check
-import com.desi.expertplantapp.data.Plant
 import com.desi.expertplantapp.databinding.FragmentCheckFormBinding
-import com.google.firebase.database.*
 
 class CheckFormFragment : Fragment() {
 
     private lateinit var fragmentCheckFormBinding: FragmentCheckFormBinding
-    private lateinit var database: DatabaseReference
     private var arrayAdapter: ArrayAdapter<String>? = null
-    private lateinit var listPlants: ArrayList<Plant>
     private lateinit var soilSelected: String
     private lateinit var viewModel: CheckFormViewModel
 
@@ -75,6 +70,11 @@ class CheckFormFragment : Fragment() {
 
             val check = Check(altitude, temperature, humidity, rainfall, soil, certainAltitude, certainTemperature, certainHumidity, certainRainfall, certainSoil )
             viewModel.getPlantsData().observe(viewLifecycleOwner, { plantsData ->
+                val certainAltitudeExpert = 100
+                val certainTemperatureExpert = 75
+                val certainHumidityExpert = 50
+                val certainRainfallExpert = 25
+                val totalCertainExpert = certainAltitudeExpert + certainTemperatureExpert + certainHumidityExpert + certainRainfallExpert
 
                 for (plant in plantsData) {
                     if (check.altitude.toString().toInt() >= plant.min_altitude.toString().toInt() &&  check.altitude.toString().toInt() <= plant.max_altitude.toString().toInt()) {
@@ -86,7 +86,7 @@ class CheckFormFragment : Fragment() {
                             "certain_altitude_four" -> certainAltitudeUser = 75
                             "certain_altitude_five" -> certainAltitudeUser = 100
                         }
-                        plant.score = plant.score?.plus((100 * certainAltitudeUser))
+                        plant.score = plant.score?.plus((certainAltitudeExpert * certainAltitudeUser))
                     }
                     if (check.temperature.toString().toInt() >= plant.min_temperature.toString().toInt() &&  check.temperature.toString().toInt() <= plant.max_temperature.toString().toInt()) {
                         var certainTemperatureUser = 0
@@ -97,7 +97,7 @@ class CheckFormFragment : Fragment() {
                             "certain_temperature_four" -> certainTemperatureUser = 75
                             "certain_temperature_five" -> certainTemperatureUser = 100
                         }
-                        plant.score = plant.score?.plus((75 * certainTemperatureUser))
+                        plant.score = plant.score?.plus((certainTemperatureExpert * certainTemperatureUser))
                     }
                     if (check.humidity.toString().toInt() >= plant.min_humidity.toString().toInt() &&  check.humidity.toString().toInt() <= plant.max_humidity.toString().toInt()) {
                         var certainHumidityUser = 0
@@ -108,7 +108,7 @@ class CheckFormFragment : Fragment() {
                             "certain_humidity_four" -> certainHumidityUser = 75
                             "certain_humidity_five" -> certainHumidityUser = 100
                         }
-                        plant.score = plant.score?.plus((50 * certainHumidityUser))
+                        plant.score = plant.score?.plus((certainHumidityExpert * certainHumidityUser))
                     }
                     if (check.rainfall.toString().toInt() >= plant.min_rainfall.toString().toInt() &&  check.rainfall.toString().toInt() <= plant.max_rainfall.toString().toInt()) {
                         var certainRainfallUser = 0
@@ -119,12 +119,11 @@ class CheckFormFragment : Fragment() {
                             "certain_rainfall_four" -> certainRainfallUser = 75
                             "certain_rainfall_five" -> certainRainfallUser = 100
                         }
-                        plant.score = plant.score?.plus((25 * certainRainfallUser))
+                        plant.score = plant.score?.plus((certainRainfallExpert * certainRainfallUser))
                     }
-                    plant.score = plant.score?.div(400)
+                    plant.score = plant.score?.div(totalCertainExpert + 50)
                     Log.d("firebase", "${plant.score}")
                 }
-                Log.d("firebase", "${plantsData}")
                 Intent(activity, CheckResultActivity::class.java).also {
                     it.putExtra(CheckResultActivity.EXTRA_PLANTS_DATA, plantsData)
                     startActivity(it)
