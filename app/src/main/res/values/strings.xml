@@ -57,5 +57,8 @@
     <string name="title_result">Here’s Yours Recommendation Plant</string>
     <string name="explain_result">The result of recommendation plant that most suitable based on your environmental condition are shown in the following list :</string>
     <string name="percetage">Certainty Percentage :</string>
+    <string name="species">Species</string>
+    <string name="benefit">Plant Benefits</string>
+    <string name="dots"> : </string>
 
 </resources>
