@@ -58,20 +58,13 @@ class PlantActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_favorite, menu)
         this.menu = menu
-        CoroutineScope(Dispatchers.IO).launch {
-            val count = viewModel.checkFavorite(plant.key!!)
-            Log.d("firebase", "count check favorite $count")
-            withContext(Dispatchers.Main) {
-                setFavoriteState(count)
-            }
-        }
+        checkFavorite()
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         plant = intent.getParcelableExtra<Plant>(EXTRA_PLANT) as Plant
         if (item.itemId == R.id.action_favorite) {
-            Log.d("firebase", "selected favorite $plant")
             if (statusFavorite) {
                 viewModel.deleteFromFavorite(plant.key!!)
                 Toast.makeText(baseContext, "Removed plant from favorite", Toast.LENGTH_SHORT).show()
@@ -79,9 +72,19 @@ class PlantActivity : AppCompatActivity() {
                 viewModel.insert(plant)
                 Toast.makeText(baseContext, "Added plant to favorite", Toast.LENGTH_SHORT).show()
             }
+            checkFavorite()
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun checkFavorite() {
+        CoroutineScope(Dispatchers.IO).launch {
+            val count = viewModel.checkFavorite(plant.key!!)
+            withContext(Dispatchers.Main) {
+                setFavoriteState(count)
+            }
+        }
     }
 
     private fun setFavoriteState(count : Int?) {
