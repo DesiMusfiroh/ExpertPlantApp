@@ -32,7 +32,8 @@ class CheckFormFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getListSoils()
-
+//        listPlants = arrayListOf()
+//        getPlantsData()
         fragmentCheckFormBinding.apply {
             autoCompleteTextView.onItemClickListener = object : AdapterView.OnItemClickListener {
                 override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -87,7 +88,6 @@ class CheckFormFragment : Fragment() {
             val certainHumidity = resources.getResourceEntryName(certainHumidityId)
             val certainRainfall = resources.getResourceEntryName(certainRainfallId)
             val certainSoil = resources.getResourceEntryName(certainSoilId)
-
             Log.d("firebase", "$certainAltitude, $certainTemperature, $certainHumidity, $certainRainfall, $certainSoil")
         }
     }
@@ -100,6 +100,7 @@ class CheckFormFragment : Fragment() {
                     for (plantSnapshot in snapshot.children) {
                         val plant = plantSnapshot.getValue(Plant::class.java)
                         listPlants.add(plant!!)
+//                        Log.d("firebase", listPlants.toString())
                     }
                 }
             }
