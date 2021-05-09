@@ -8,7 +8,7 @@ import com.desi.expertplantapp.data.Plant
 import com.desi.expertplantapp.databinding.ItemPlantsBinding
 import java.lang.StringBuilder
 
-class ResultAdapter(private val listPlants : ArrayList<Plant>) : RecyclerView.Adapter<ResultAdapter.PlantViewHolder>() {
+class ResultAdapter(private var listPlants: ArrayList<Plant>) : RecyclerView.Adapter<ResultAdapter.PlantViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     interface OnItemClickCallback {
@@ -17,6 +17,13 @@ class ResultAdapter(private val listPlants : ArrayList<Plant>) : RecyclerView.Ad
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback
+    }
+
+
+    fun setList(plants: ArrayList<Plant>) {
+        listPlants.clear()
+        listPlants.addAll(plants)
+        notifyDataSetChanged()
     }
 
     class PlantViewHolder (private val binding: ItemPlantsBinding) : RecyclerView.ViewHolder(binding.root){
