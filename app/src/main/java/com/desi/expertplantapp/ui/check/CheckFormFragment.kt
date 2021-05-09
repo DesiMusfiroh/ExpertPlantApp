@@ -1,6 +1,7 @@
 package com.desi.expertplantapp.ui.check
 
 import android.R
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,9 +10,13 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.desi.expertplantapp.data.Plant
 import com.desi.expertplantapp.data.Soil
 import com.desi.expertplantapp.databinding.FragmentCheckFormBinding
+import com.desi.expertplantapp.ui.home.HomeViewModel
+import com.desi.expertplantapp.ui.home.SoilAdapter
+import com.desi.expertplantapp.ui.soil.SoilActivity
 import com.google.firebase.database.*
 
 class CheckFormFragment : Fragment() {
@@ -31,9 +36,13 @@ class CheckFormFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getListSoils()
-//        listPlants = arrayListOf()
-//        getPlantsData()
+        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[CheckFormViewModel::class.java]
+
+        viewModel.getListSoilName().observe(viewLifecycleOwner, { listSoilName ->
+            arrayAdapter = context?.let { ArrayAdapter(it, R.layout.simple_spinner_dropdown_item, listSoilName) }
+            fragmentCheckFormBinding.autoCompleteTextView.setAdapter(arrayAdapter)
+        })
+
         fragmentCheckFormBinding.apply {
             autoCompleteTextView.onItemClickListener = object : AdapterView.OnItemClickListener {
                 override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -44,29 +53,6 @@ class CheckFormFragment : Fragment() {
                 getDataInput()
             }
         }
-    }
-
-    private fun getListSoils() {
-        database = FirebaseDatabase.getInstance().getReference("soils")
-        database.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    for (soilSnapshot in snapshot.children) {
-                        val soil = soilSnapshot.getValue(Soil::class.java)
-                        mapSoils = LinkedHashMap()
-                        mapSoils.put(soilSnapshot.key!!, soil?.name!!)
-                        listSoils.add(soil.name)
-                    }
-                    Log.d("firebase", "map soils = $mapSoils")
-                }
-                arrayAdapter = context?.let { ArrayAdapter(it, R.layout.simple_spinner_dropdown_item, listSoils) }
-                fragmentCheckFormBinding.autoCompleteTextView.setAdapter(arrayAdapter)
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Log.d("firebase", "cancelled")
-            }
-        })
     }
 
     private fun getDataInput() {
