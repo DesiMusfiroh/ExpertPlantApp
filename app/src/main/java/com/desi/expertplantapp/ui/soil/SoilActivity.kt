@@ -3,6 +3,8 @@ package com.desi.expertplantapp.ui.soil
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.desi.expertplantapp.R
 import com.desi.expertplantapp.data.Soil
 import com.desi.expertplantapp.databinding.ActivitySoilBinding
 
@@ -24,6 +26,7 @@ class SoilActivity : AppCompatActivity() {
             tvName.text = soil.name
             Glide.with(this@SoilActivity)
                     .load(soil.image)
+                    .apply(RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error))
                     .into(imgImage)
         }
 

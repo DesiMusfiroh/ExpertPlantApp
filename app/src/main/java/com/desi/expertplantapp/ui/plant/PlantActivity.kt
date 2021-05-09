@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.desi.expertplantapp.R
 import com.desi.expertplantapp.data.Plant
 import com.desi.expertplantapp.databinding.ActivityPlantBinding
@@ -47,6 +48,7 @@ class PlantActivity : AppCompatActivity() {
             tvScore.text = StringBuilder("Certainty Percentage : ${plant.score} %")
             Glide.with(this@PlantActivity)
                 .load(plant.image)
+                .apply(RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error))
                 .into(imgImage)
         }
 
