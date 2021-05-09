@@ -61,5 +61,6 @@
     <string name="benefit">Plant Benefits</string>
     <string name="dots"> : </string>
     <string name="characteristics">Environmental Characteristics</string>
+    <string name="menu_favorite">Favorite Menu</string>
 
 </resources>

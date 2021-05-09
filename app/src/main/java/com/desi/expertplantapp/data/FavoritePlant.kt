@@ -9,12 +9,14 @@ import kotlinx.parcelize.Parcelize
 
 
 @Parcelize
-@Entity(tableName = "favoriteplants")
+@Entity(tableName = "favorite_plants")
 data class FavoritePlant (
     @PrimaryKey
     @NonNull
+    val id: String,
+
     @ColumnInfo(name = "key")
-    val key: String,
+    val key: String? = null,
 
     @ColumnInfo(name = "name")
     val name: String? = null,
