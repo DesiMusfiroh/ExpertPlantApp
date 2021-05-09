@@ -54,5 +54,8 @@
     <string name="register_desc">Welcome to the Expert Plant App. If this is your first time using this application, please register your account with the valid email address !</string>
     <string name="login_desc">Welcome back to the Expert Plant App. Please login with your existing account !</string>
     <string name="select_soil">Select Soil</string>
+    <string name="title_result">Here’s Yours Recommendation Plant</string>
+    <string name="explain_result">The result of recommendation plant that most suitable based on your environmental condition are shown in the following list :</string>
+    <string name="percetage">Certainty Percentage :</string>
 
 </resources>

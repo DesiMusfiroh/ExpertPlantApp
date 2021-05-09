@@ -125,7 +125,10 @@ class CheckFormFragment : Fragment() {
                     Log.d("firebase", "${plant.score}")
                 }
                 Log.d("firebase", "${plantsData}")
-                Toast.makeText(context, "Plant Recomendation Percentage $plantsData", Toast.LENGTH_SHORT).show()
+                Intent(activity, CheckResultActivity::class.java).also {
+                    it.putExtra(CheckResultActivity.EXTRA_PLANTS_DATA, plantsData)
+                    startActivity(it)
+                }
             })
         }
 

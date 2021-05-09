@@ -11,8 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ExpertPlantApp">
-        <activity android:name=".ui.check.CheckResultActivity"></activity>
-        <activity android:name=".ui.soil.SoilActivity" />
+        <activity android:name=".ui.plant.PlantActivity"></activity>
+        <activity
+            android:name=".ui.check.CheckResultActivity"
+            android:parentActivityName=".ui.MainActivity" />
+        <activity
+            android:name=".ui.soil.SoilActivity"
+            android:parentActivityName=".ui.MainActivity" />
         <activity android:name=".ui.auth.RegisterActivity" />
         <activity android:name=".ui.auth.LoginActivity">
             <intent-filter>
