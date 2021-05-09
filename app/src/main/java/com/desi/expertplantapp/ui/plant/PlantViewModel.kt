@@ -25,7 +25,6 @@ class PlantViewModel(application: Application) : AndroidViewModel(application) {
     fun insert(plant: Plant) {
         Log.d("firebase", "insert $plant")
         insertToDb(plant)
-
     }
 
     private fun insertToDb(plant: Plant) {

@@ -62,5 +62,6 @@
     <string name="dots"> : </string>
     <string name="characteristics">Environmental Characteristics</string>
     <string name="menu_favorite">Favorite Menu</string>
+    <string name="favorite_plant">Favorite Plants</string>
 
 </resources>
