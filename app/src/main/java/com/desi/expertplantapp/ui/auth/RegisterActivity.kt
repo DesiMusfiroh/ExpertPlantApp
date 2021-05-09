@@ -23,11 +23,16 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         auth = Firebase.auth // Initialize Firebase Auth
 
         binding.btnRegister.setOnClickListener(this)
+        binding.btnLogin.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         when (v.id) {
             R.id.btn_register -> registerUser()
+            R.id.btn_login -> {
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+            }
         }
     }
 

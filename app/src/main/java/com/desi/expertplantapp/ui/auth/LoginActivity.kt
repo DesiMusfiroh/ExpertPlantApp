@@ -42,8 +42,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             } else Toast.makeText(baseContext, "Please check your email to verify!.", Toast.LENGTH_SHORT).show()
-        } else Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
-
+        } else Toast.makeText(baseContext, "Please Sign In", Toast.LENGTH_SHORT).show()
     }
 
     override fun onClick(v: View) {
