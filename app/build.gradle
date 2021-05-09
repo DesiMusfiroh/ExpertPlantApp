@@ -74,10 +74,13 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
-    annotationProcessor 'androidx.room:room-compiler:2.3.0'
 
-    implementation "androidx.room:room-runtime:$roomRuntimeVersion"
+    implementation "androidx.room:room-runtime:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$roomVersion"
+    // optional - Test helpers
+    testImplementation "androidx.room:room-testing:$roomVersion"
 
     // Import the BoM for the Firebase platform
     implementation platform('com.google.firebase:firebase-bom:26.8.0')

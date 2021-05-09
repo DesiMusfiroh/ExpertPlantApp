@@ -20,6 +20,7 @@ class CheckResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCheckResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar!!.title = "Recommendation Plant"
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         listPlants = intent.getParcelableArrayListExtra<Plant>(EXTRA_PLANTS_DATA) as ArrayList<Plant>
