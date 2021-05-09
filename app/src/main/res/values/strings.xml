@@ -60,5 +60,6 @@
     <string name="species">Species</string>
     <string name="benefit">Plant Benefits</string>
     <string name="dots"> : </string>
+    <string name="characteristics">Environmental Characteristics</string>
 
 </resources>

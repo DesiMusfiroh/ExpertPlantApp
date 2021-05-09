@@ -27,7 +27,7 @@ class PlantActivity : AppCompatActivity() {
             tvTemperature.text = StringBuilder("${plant.min_temperature} - ${plant.max_temperature} celcius")
             tvHumidity.text = StringBuilder("${plant.min_humidity} - ${plant.max_humidity} %")
             tvRainfall.text = StringBuilder("${plant.min_rainfall} - ${plant.max_rainfall} mm/year")
-            tvScore.text = StringBuilder("Certainty Percentage : ${plant.score}")
+            tvScore.text = StringBuilder("Certainty Percentage : ${plant.score} %")
             Glide.with(this@PlantActivity)
                 .load(plant.image)
                 .into(imgImage)

@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
             adapter.setOnItemClickCallback(object : SoilAdapter.OnItemClickCallback {
                 override fun onItemClicked(data: Soil) {
                     Intent(activity, SoilActivity::class.java).also {
-                        it.putExtra(SoilActivity.EXTRA_SOIL, data.key)
+                        it.putExtra(SoilActivity.EXTRA_SOIL, data)
                         startActivity(it)
                     }
                 }
